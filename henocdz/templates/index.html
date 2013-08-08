@@ -32,7 +32,7 @@
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 
-		<link href='http://fonts.googleapis.com/css?family=Paytone+One|Titan+One|Patua+One' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Paytone+One|Fauna+One|Titan+One|Patua+One' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="{{STATIC_URL}}css/normalize.css" /> <!-- HTML5 BP-->
 		<link rel="stylesheet" href="{{STATIC_URL}}css/main.css" /> <!-- HTML5 BP-->
 		<link rel="stylesheet" href="{{STATIC_URL}}css/style.css" />
@@ -62,24 +62,14 @@
 					</div>
 					<div class="sc-content">
 
-						<div class="sc-content_c">
+						<div class="sc-content_bio">
 							<div id="usr-pp">
-								<img src="/media/usr/1.jpg" alt="Henoc D&iacute;az"/>
+								<img src="{{usr.pic.url}}" alt="Henoc D&iacute;az"/>
 							</div>
 							<div id="usr-bio">
-								<p>Coming soon!</p>
-								<p>Coming soon!</p>
-								<p>Coming soon!</p>
-								<p>Coming soon!</p>
-								<p>Coming soon!</p>
-								<p>Coming soon!</p>
-								<p>Coming soon!</p>
-								<p>Coming soon!</p>
-								<p>Coming soon!</p>
-								<p>Coming soon!</p>
-								<p>Coming soon!</p>
-								<p>Coming soon!</p>
-								<p>Coming soon!</p>
+								{% autoescape off %}
+								{{usr.bio_es}}
+								{% endautoescape %}
 							</div>
 						</div>
 					</div>
@@ -89,21 +79,29 @@
 						<span class="sc-title_s">Proyectos</span>
 					</div>
 					<div class="sc-content">
-						<div class="sc-content_c"></div>
-						<p>Coming soon!</p>
-						<p>Coming soon!</p>
-						<p>Coming soon!</p>
-						<p>Coming soon!</p>
-						<p>Coming soon!</p>
-						<p>Coming soon!</p>
-						<p>Coming soon!</p>
-						<p>Coming soon!</p>
-						<p>Coming soon!</p>
-						<p>Coming soon!</p>
-						<p>Coming soon!</p>
-						<p>Coming soon!</p>
-						<p>Coming soon!</p>
+						<div class="sc-content_pro">
+						
+							<ul id="da-thumbs" class="da-thumbs">
 
+								{% for p in projects %}	
+								<li>
+									<a href="{{p.site_url}}" target="blank">
+										<img src="/media/{{p.thumbnail}}" alt="{{p.name}}" />
+										<div class="df"><div class="spa">
+											<strong>{{p.name|capfirst}}</strong> <br />
+											<div class="info">
+											<strong>+Info: </strong><em>{{p.description}}</em><br />
+											<strong>Tecnolog&iacute;as: </strong> <em>{{p.languages}}</em><br />
+											<strong>Fecha: </strong> <em>{{p.date|date:'j M, Y'}}</em> <br/>
+											</div>
+										</div></div>
+									</a>
+								</li>
+							{% endfor %}
+								
+							</ul>
+
+						</div>
 					</div>
 				</li>
 				<li id="tutorials" class="sc lis blue-1" >
@@ -111,21 +109,27 @@
 						<span class="sc-title_s">Tutoriales</span>
 					</div>
 					<div class="sc-content">
-						<div class="sc-content_c"></div>
-						<p>Coming soon!</p>
-						<p>Coming soon!</p>
-						<p>Coming soon!</p>
-						<p>Coming soon!</p>
-						<p>Coming soon!</p>
-						<p>Coming soon!</p>
-						<p>Coming soon!</p>
-						<p>Coming soon!</p>
-						<p>Coming soon!</p>
-						<p>Coming soon!</p>
-						<p>Coming soon!</p>
-						<p>Coming soon!</p>
-						<p>Coming soon!</p>
+						<div class="sc-content_pro">
+							<ul id="da-thumbs" class="da-thumbs">
 
+							
+
+							{% for c in courses %}	
+								<li>
+									<a href="http://youtube.com/playlist?list={{c.playlist_id}}" target="blank">
+										<img src="/media/{{c.thumbnail}}" alt="{{c.name}}" />
+										<div><span>
+											{{c.name|capfirst}} <br />
+											<strong>Tecnolog&iacute;as: </strong> <em>{{c.languages}}</em>
+
+										</span></div>
+											
+									</a>
+								</li>
+							{% endfor %}
+								
+							</ul>
+						</div>
 					</div>
 				</li>
 				<li id="contact" class="sc lis blue-2" >
@@ -177,6 +181,8 @@
 
 
 		<script src="{{STATIC_URL}}util/jquery-1.9.1.min.js"></script>
+		<script src="{{STATIC_URL}}util/hoverdir/js/modernizr.custom.97074.js"></script>
+		<script src="{{STATIC_URL}}util/hoverdir/js/jquery.hoverdir.js"></script>
 		<script src="{{STATIC_URL}}js/main.js"></script>
 	</body>
 </html>

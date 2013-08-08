@@ -57,6 +57,13 @@ nav ul li{
 	margin: 0 auto;
 }
 
+.sc-content_pro{
+	display: block;
+	width: 80%;
+	margin: 0 auto;
+}
+
+
 .sc-content_ctc input[type=text],.sc-content_ctc textarea{
 	background: #FFF;
 	background: rgba(255,255,255,0.8);
@@ -91,18 +98,17 @@ nav ul li{
 
 #slogan,#menu-show{  
 	color: #3c3c3c;
-	float: right; 
+	position: absolute;
 	font-family: 'Titan One',cursive;
 	font-size: 1.6em; 
 	font-style: italic; 
 	height: 100%; 
 	line-height: 2.5em; 
-	margin-right: 1em ; 
+	right: 1em ; 
 }
 
 #content{
 	width: 100%;
-	height: 89.82708933717579%;
 	position: relative;
 	background: #CCC;
 }
@@ -127,6 +133,34 @@ nav ul li{
 	width: 60px;
 }
 
+
+#usr-pp{
+	float: left;
+	max-width: 20%;
+	margin:2%;
+	margin-right: 3%;
+	border: 1em solid #ffad00;
+	-webkit-transform: skew(4deg,0);
+}
+
+#usr-bio{
+	padding-top: 0em;
+	font-family: 'Fauna One';
+
+	text-align: justify;
+}
+
+.sc-content_bio{
+	display: block;
+	width: 90%;
+	padding-top: 2em;
+	margin:0 auto;
+}
+
+#usr-pp img{
+	display: block;
+	width: 100%;
+}
 
 
 #ctc-social ul{
@@ -187,7 +221,7 @@ nav ul li{
 	width: 99%;
 }
 
-#content ul li:first-child{
+#content .uls .lis:first-child{
 	margin-left: 0;
 }
 
@@ -199,7 +233,7 @@ nav ul li{
 
 	body{ overflow: auto; }
 
-	#menu-show{display: block;}
+	#menu-show{display: block;cursor: pointer;}
 
 	nav{
 		margin:0 !important;
@@ -224,6 +258,19 @@ nav ul li{
 	#ctc-social ul li{
 		display: inline-block;
 		width: 22% !important;
+	}
+
+	#usr-pp{
+		float: none;
+		display: block;
+		max-width: 90%;
+		margin:2% auto;
+		border: 0.5em solid #ffad00;
+		-webkit-transform: none;
+	}
+
+	#usr-bio{
+		padding-top: 0em;
 	}
 
 	#stitle{display: none;}
@@ -258,7 +305,7 @@ nav ul li{
 		-webkit-transform: none;
 	}
 
-	#slogan{  display: none; font-family: "Patua One" ;}
+	#slogan{  display: none; font-family: "Patua One" !important;}
 }
 
 /*
@@ -269,3 +316,61 @@ nav ul li{
 .yellow-2{ 	background: url('/static/b/sh_yelloww.png') #ffb619; }
 .blue-1{ background: url('/static/b/sh_blue.png') #0041b3; }
 .blue-2{ background: url('/static/b/sh_bluee.png') #005cff ; }
+
+
+
+.da-thumbs {
+	list-style: none;
+	width: 100%;
+	position: relative;
+	margin: 20px auto;
+	padding: 0;
+}
+.da-thumbs li {
+	background: rgba(255,255,255,0.8);
+	box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+	float: left;
+	height: 230px;
+	margin: 5px;
+	overflow: hidden;
+	padding: 8px;
+	position: relative;
+	width: 250px;
+}
+.da-thumbs li a,
+.da-thumbs li a img {
+	height: 100%;
+	display: block;
+	position: relative;
+}
+
+.da-thumbs li a img{
+
+}
+
+.da-thumbs li a {
+	overflow: hidden;
+}
+.da-thumbs li a .df {
+	position: absolute;
+	background: #333;
+	background: rgba(75,75,75,0.7);
+	width: 100%;
+	height: 100%;
+}
+
+.spa .info{
+	font-size: 0.8em;
+}
+
+.da-thumbs li a div .spa {
+	display: block;
+	padding: 10px 0;
+	margin: 40px 20px 20px 20px;
+	text-transform: uppercase;
+	font-weight: normal;
+	color: rgba(255,255,255,0.9);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+	border-bottom: 1px solid rgba(255,255,255,0.5);
+	box-shadow: 0 1px 0 rgba(0,0,0,0.1), 0 -10px 0 rgba(255,255,255,0.3);
+}

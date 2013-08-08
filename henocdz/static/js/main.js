@@ -21,6 +21,7 @@ function dz(){
 		_s.show_sc(0)
 
 	$('.sc-title').on('click',function (){ _s.show_sc( $(this).parents('.sc').index()); })
+	$(' #da-thumbs > li ').each( function() { $(this).hoverdir(); } );
 	$('#menu-show').on('click',function(){
 		var n = $('#menu');
 		if( n.css('display') == 'block')
@@ -32,7 +33,10 @@ function dz(){
 
 function resize_content(){
 	var c = $('#content'),	w = $(window), h = $('header');
-	
+	var active_w = 101.2 - ( ( 60 * 100 / $(window).width() * 3)  ) + '%';
+
+	c.css('height', (100 -  (h.height() * 100 / $(window).height())) + '%' );
+	$('.sc-active').css('width',active_w);
 
 	if(w.width() > 960)
 		$('#menu').slideUp(10,function(){c.css('height', (100 -  (h.height() * 100 / $(window).height())) + '%' );});
@@ -74,6 +78,9 @@ function Sliderama(){
 				self.children('.sc-title').css('display','none');
 				self.children('.sc-content').fadeIn();
 			});
+
+			self.addClass('sc-active');
+			 $('.sc').eq(parent.pre).removeClass('sc-active');
 
 			self.animate({
 				width:  101.2 - ( ( 60 * 100 / $(window).width() * 3)  ) + '%'
