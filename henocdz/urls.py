@@ -8,7 +8,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
 	url(r'^$',dz.home),
 	url(r'^ajax/(?P<seccion>\w{1,8})/$',dz.get_ajax_data),
-
+    url(r'^contact/send/$', dz.send_email),
 
     # Examples:
     # url(r'^$', 'henocdz.views.home', name='home'),

@@ -1,17 +1,27 @@
+# -*- coding:utf8 -*-
+
 from django.db import models
 
 # Create your models here.
 
 class Me(models.Model):
+
+	def __str__(self):
+		return self.name
+
 	name = models.CharField(max_length=140, null=False)
 	bio_es = models.TextField()
 	bio_en = models.TextField(null=True,blank=True)
 	pic = models.ImageField(upload_to="usr")
 
 class Course(models.Model):
+
+	def __str__(self):
+		return self.name
+
 	name = models.CharField(max_length=80,null=False)
 	thumbnail = models.ImageField(upload_to="courses/")
-	playlist_id = models.CharField(max_length=11)
+	playlist_id = models.CharField(max_length=40)
 	date = models.DateTimeField(auto_now_add=True)
 
 class Tutorial(models.Model):
@@ -23,6 +33,10 @@ class Tutorial(models.Model):
 	course = models.ForeignKey('Course',null=True,blank=True)
 
 class Project(models.Model):
+
+	def __str__(self):
+		return self.name
+
 	name = models.CharField(max_length=80)
 	site_url = models.URLField()
 	description = models.TextField()

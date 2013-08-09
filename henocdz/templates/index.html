@@ -4,11 +4,13 @@
 <!--[if IE 8 ]><html class="ie ie8" lang="es"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html lang="es"> <!--<![endif]-->
 	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta charset="utf-8" />
 		<meta name="GOOGLEBOT" content="NOODP" />
 		<meta name="googlebot" content="noodp" />
 		<meta content="" name="description" />
-		<meta content="" name="keywords" /> 	
+		<meta content="" name="keywords" />
+		<meta name="viewport" content="width=device-width">
 		<!--
 			======================
 				SOCIAL METATAGS
@@ -106,7 +108,7 @@
 				</li>
 				<li id="tutorials" class="sc lis blue-1" >
 					<div class="sc-title">
-						<span class="sc-title_s">Tutoriales</span>
+						<span class="sc-title_s">Cursos</span>
 					</div>
 					<div class="sc-content">
 						<div class="sc-content_pro">
@@ -117,12 +119,11 @@
 							{% for c in courses %}	
 								<li>
 									<a href="http://youtube.com/playlist?list={{c.playlist_id}}" target="blank">
-										<img src="/media/{{c.thumbnail}}" alt="{{c.name}}" />
-										<div><span>
-											{{c.name|capfirst}} <br />
-											<strong>Tecnolog&iacute;as: </strong> <em>{{c.languages}}</em>
-
-										</span></div>
+										<img style="margin-left:-35%" src="/media/{{c.thumbnail}}" alt="{{c.name}}" />
+										<div class="df"><div class="spa">
+											<strong>{{c.name}}</strong>
+											</div>
+										</div>
 											
 									</a>
 								</li>
@@ -139,14 +140,17 @@
 					<div class="sc-content">
 						<div class="sc-content_ctc">
 							
-							<form name="ctc_form" action="/contact/send/" method="POST">
+							<form name="ctc_form" id="ctc_form" action="/contact/send/" method="POST">
 								<input type="text" name="_name" placeholder="Nombre" />
+								{%csrf_token%}
 								<input type="text" name="_email"  placeholder="Correo electr&oacute;nico" />
 								<input type="text" name="_subject"  placeholder="Asunto" />
 
 								<textarea name="_message" placeholder="Mensaje"></textarea>
 								<input type="submit" name="_send" value="Enviar" />
 							</form>
+
+							<div id="status_ctc" class="status_ok">Enviando mensaje</div>
 
 							<div id="ctc-social">
 								<ul>
@@ -183,6 +187,6 @@
 		<script src="{{STATIC_URL}}util/jquery-1.9.1.min.js"></script>
 		<script src="{{STATIC_URL}}util/hoverdir/js/modernizr.custom.97074.js"></script>
 		<script src="{{STATIC_URL}}util/hoverdir/js/jquery.hoverdir.js"></script>
-		<script src="{{STATIC_URL}}js/main.js"></script>
+		<script src="{{STATIC_URL}}js/main.min.js"></script>
 	</body>
 </html>

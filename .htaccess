@@ -1,0 +1,10 @@
+SetHandler python-program
+PythonHandler django.core.handlers.modpython
+#PYTHON_EGG_CACHE = /home/roofdier/webapps/cache
+SetEnv DJANGO_SETTINGS_MODULE henocdz.settings
+PythonDebug On
+PythonPath "['/home/roofdier/webapps'] + sys.path"
+
+<FilesMatch "\.(jpg|gif|png|css|js|mp3|eot|ttf|svg|woff|xml|html)$">
+	SetHandler None
+</FilesMatch>

@@ -225,6 +225,7 @@ nav ul li{
 	margin-left: 0;
 }
 
+
 @media screen and (max-width: 960px){
 
 	.sc-content_ctc{
@@ -244,6 +245,10 @@ nav ul li{
 
 	#content{
 		height: auto !important;
+	}
+
+	#content .uls .lis{
+		padding: 2em 0;
 	}
 
 	#content .uls .lis, #content .uls{
@@ -307,6 +312,9 @@ nav ul li{
 
 	#slogan{  display: none; font-family: "Patua One" !important;}
 }
+
+
+
 
 /*
 	==== COLORS
@@ -373,4 +381,31 @@ nav ul li{
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
 	border-bottom: 1px solid rgba(255,255,255,0.5);
 	box-shadow: 0 1px 0 rgba(0,0,0,0.1), 0 -10px 0 rgba(255,255,255,0.3);
+}
+
+
+@media screen and (max-width: 500px){
+	.da-thumbs li {
+		display: block;
+		width: 100%;
+	}
+}
+
+#status_ctc{
+	background: rgba(56,56,56,0.8);
+	display: none;
+	margin:0 auto;
+	width: 95%;
+	color: #FFF;
+	padding: 0.5em;
+	text-align: center;
+	font-weight: bold;
+}
+
+.status_ok{
+	background: rgba(27, 153, 88, 0.9) !important; 
+}
+
+.status_err{
+	background: rgba(221, 35, 35, 0.9) !important; 
 }

@@ -29,6 +29,34 @@ function dz(){
 		else
 			n.slideDown();
 	})
+
+
+	$('#ctc_form').on('submit',function(e){
+		e.preventDefault();
+
+		var self = $(this);
+
+		$.ajax({
+			beforeSend: function(){
+				$('#status_ctc').removeClass('status_ok').removeClass('status_err').text('Enviando Mensaje...');
+				self.slideUp('fast',function(){ $('#status_ctc').fadeIn(); })
+			},
+			type: 'POST',
+			dataType: 'json',
+			url: self.attr('action'),
+			data: self.serialize(),
+			success: function(i){
+				if(i.status.no == 1){
+					$('#status_ctc').addClass('status_ok').html('Gracias por ponerte en contacto.').fadeIn(); 
+					self.reset();
+				}
+				else{
+					self.slideDown()
+					$('#status_ctc').addClass('status_err').html('Vuelve a intentarlo.').fadeIn(); 
+				}
+			}
+		}).error(function(a,b,c){self.slideDown(); $('#status_ctc').addClass('status_err').html('Vuelve a intentarlo. [404/500]').fadeIn(); })
+	})
 }
 
 function resize_content(){
@@ -47,7 +75,6 @@ function Sliderama(){
 	this.pre = -1,
 	this.now = 0,
 	this.title=$('#stitle'), 
-	this.apiscroll, 
 	this.w = $('window'),
 	this.main = $('#content');
 	
@@ -73,7 +100,7 @@ function Sliderama(){
 			parent.title.text(" - "+self.children('.sc-title').text());
 
 			self.children('.sc-title').animate({
-				width:0,
+				width:0
 			},function (){
 				self.children('.sc-title').css('display','none');
 				self.children('.sc-content').fadeIn();
@@ -93,4 +120,3 @@ function Sliderama(){
 		});
 	}
 }
-
