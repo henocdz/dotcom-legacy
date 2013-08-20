@@ -1,7 +1,7 @@
 Henoc Dz's personal web site.
 ======
 
-Public repo for www.henocdz.com
+Public repo for www.rfdz.mx
 
 Language: Python
 
